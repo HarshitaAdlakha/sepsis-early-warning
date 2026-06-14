@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Virtual environments
+venv/
+env/
+.env/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Data — never commit patient data
+data/raw/
+data/processed/
+data/*.csv
+data/*.parquet
+data/*.npy
+data/*.npz
+
+# Model weights (large binary files)
+results/models/*.json
+results/models/*.joblib
+results/models/*.npz
+results/models/*_model/
+
+# Logs
+results/logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp

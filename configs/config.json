@@ -1,0 +1,40 @@
+{
+  "data": {
+    "processed_dir": "data/processed",
+    "n_sepsis": 570,
+    "n_control": 5618,
+    "prediction_horizon_hours": 7,
+    "max_icu_hours": 72,
+    "min_icu_hours": 7,
+    "seed": 42
+  },
+  "xgboost": {
+    "n_estimators": 500,
+    "learning_rate": 0.05,
+    "max_depth": 6,
+    "min_child_weight": 3,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "gamma": 0.1,
+    "reg_alpha": 0.1,
+    "reg_lambda": 1.0,
+    "early_stopping_rounds": 30
+  },
+  "rnn": {
+    "max_length": 72,
+    "n_units": 64,
+    "n_layers": 2,
+    "dropout": 0.3,
+    "recurrent_dropout": 0.1,
+    "dense_units": [32],
+    "learning_rate": 0.001,
+    "epochs": 50,
+    "batch_size": 64,
+    "patience": 8,
+    "bidirectional": true
+  },
+  "tuning": {
+    "n_trials": 50,
+    "output_dir": "results"
+  }
+}
