@@ -11,9 +11,17 @@ from pathlib import Path
 from typing import Optional, Tuple, Literal
 import numpy as np
 
-import tensorflow as tf
-from tensorflow import keras
-from tensorflow.keras import layers, regularizers
+try:
+    import tensorflow as tf
+    from tensorflow import keras
+    from tensorflow.keras import layers, regularizers
+except ImportError:
+    raise ImportError(
+        "TensorFlow is required for RNN models but is not installed.\n"
+        "Install it with: pip install tensorflow\n"
+        "Note: TensorFlow requires Python 3.9–3.12. Current Python 3.14 is not yet supported.\n"
+        "The XGBoost model and demo work without TensorFlow."
+    )
 
 
 MASK_VALUE = -999.0

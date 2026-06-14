@@ -66,7 +66,7 @@ def main():
     print("=" * 40)
     key_metrics = ["auroc", "auprc", "sensitivity", "specificity", "f1", "brier"]
     for k in key_metrics:
-        bar = "█" * int(metrics[k] * 20)
+        bar = "#" * int(metrics[k] * 20)
         print(f"  {k:<14} {metrics[k]:.4f}  {bar}")
 
     # 5. Plots

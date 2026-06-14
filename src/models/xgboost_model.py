@@ -58,11 +58,12 @@ class SepsisXGBModel:
         if scale_pos_weight is not None:
             params["scale_pos_weight"] = scale_pos_weight
 
-        self.model = xgb.XGBClassifier(**params)
+        self.model = xgb.XGBClassifier(
+            **params, early_stopping_rounds=early_stopping_rounds
+        )
         self.model.fit(
             X_train, y_train,
             eval_set=[(X_val, y_val)],
-            early_stopping_rounds=early_stopping_rounds,
             verbose=False,
         )
         return self
