@@ -52,8 +52,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ── Sidebar navigation ────────────────────────────────────────────────────────
-st.sidebar.image("https://img.icons8.com/fluency/96/heart-monitor.png", width=60)
-st.sidebar.title("Sepsis Early Warning")
+st.sidebar.markdown("## 🏥 Sepsis Early Warning")
 st.sidebar.caption("Amazon ML Summer Program · Harshita Adlakha")
 
 page = st.sidebar.radio(
