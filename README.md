@@ -2,9 +2,14 @@
 
 > **Early prediction of sepsis onset in ICU patients using gradient boosting and deep learning on clinical time-series data.**
 
+[![Live Demo](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://sepsis-early-warning-kczsorrx6h9ultnbx9aeun.streamlit.app/)
 [![CI](https://github.com/HarshitaAdlakha/sepsis-early-warning/actions/workflows/ci.yml/badge.svg)](https://github.com/HarshitaAdlakha/sepsis-early-warning/actions/workflows/ci.yml)
-[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+### 🚀 [Live Demo → sepsis-early-warning.streamlit.app](https://sepsis-early-warning-kczsorrx6h9ultnbx9aeun.streamlit.app/)
+
+> Try the **interactive Patient Simulator** — adjust ICU vitals and lab values to see real-time sepsis risk predictions.
 
 ---
 
