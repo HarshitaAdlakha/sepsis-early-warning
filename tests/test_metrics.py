@@ -47,7 +47,10 @@ class TestThresholdSearch:
         y = np.array([0] * 100 + [1] * 100)
         p = np.concatenate([rng.uniform(0, 0.4, 100), rng.uniform(0.5, 1.0, 100)])
         thresh = find_threshold_at_sensitivity(y, p, target_sensitivity=0.80)
-        from sklearn.metrics import roc_curve
-        _, tpr, thresholds = roc_curve(y, p)
-        achieved = float(tpr[thresholds >= thresh][0]) if len(tpr[thresholds >= thresh]) else 0.0
-        assert achieved >= 0.70  # some tolerance for test data
+        # verify the threshold is a valid probability in [0, 1]
+        assert 0.0 <= thresh <= 1.0
+        # verify the model actually achieves >= 80% sensitivity below this threshold
+        y_pred = (p >= thresh).astype(int)
+        tp = ((y == 1) & (y_pred == 1)).sum()
+        sensitivity = tp / (y == 1).sum()
+        assert sensitivity >= 0.75  # tolerance for random data
