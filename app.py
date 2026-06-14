@@ -156,10 +156,10 @@ responsible for **11 million deaths per year** globally.
     c1, c2 = st.columns(2)
     c1.dataframe(vitals_df[vitals_df["Category"] == "Vital Signs"]["Variable"]
                  .reset_index(drop=True).rename("Vital Signs (15)"),
-                 use_container_width=True, height=300)
+                 width="stretch", height=300)
     c2.dataframe(vitals_df[vitals_df["Category"] == "Laboratory Values"]["Variable"]
                  .reset_index(drop=True).rename("Laboratory Values (29)"),
-                 use_container_width=True, height=300)
+                 width="stretch", height=300)
 
     st.markdown("---")
     st.markdown(
@@ -178,7 +178,7 @@ elif page == "⚙️ Train Model":
         "Results are cached — subsequent visits are instant."
     )
 
-    if st.button("🚀 Train Model", type="primary", use_container_width=True):
+    if st.button("🚀 Train Model", type="primary", width="stretch"):
         with st.spinner("Training... (first run takes ~30 seconds)"):
             model, scaler, metrics, y_test, y_proba = get_trained_model()
         st.success("Model trained successfully!")
@@ -222,7 +222,7 @@ elif page == "⚙️ Train Model":
             margin=dict(l=10, r=10, t=10, b=10),
             legend=dict(x=0.55, y=0.05),
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
     with col2:
         st.markdown('<div class="section-header">Precision-Recall Curve</div>',
@@ -248,7 +248,7 @@ elif page == "⚙️ Train Model":
             margin=dict(l=10, r=10, t=10, b=10),
             legend=dict(x=0.35, y=0.95),
         )
-        st.plotly_chart(fig2, use_container_width=True)
+        st.plotly_chart(fig2, width="stretch")
 
     st.markdown("---")
     cm_data = [[metrics["tn"], metrics["fp"]],
@@ -263,7 +263,7 @@ elif page == "⚙️ Train Model":
     )
     fig3.update_layout(template="plotly_dark", height=320,
                        margin=dict(l=10, r=10, t=40, b=10))
-    st.plotly_chart(fig3, use_container_width=True)
+    st.plotly_chart(fig3, width="stretch")
 
 
 # ════════════════════════════════════════════════════════════════════════════
@@ -405,7 +405,7 @@ elif page == "🩺 Patient Simulator":
             height=220, template="plotly_dark",
             margin=dict(l=20, r=20, t=20, b=10),
         )
-        st.plotly_chart(fig_gauge, use_container_width=True)
+        st.plotly_chart(fig_gauge, width="stretch")
 
         st.info(
             "**Interpretation**\n\n"
@@ -436,7 +436,7 @@ elif page == "🩺 Patient Simulator":
         yaxis_title=VITALS_DISPLAY.get(trend_feat, ("", ""))[1],
         margin=dict(l=10, r=10, t=10, b=10),
     )
-    st.plotly_chart(fig_trend, use_container_width=True)
+    st.plotly_chart(fig_trend, width="stretch")
 
 
 # ════════════════════════════════════════════════════════════════════════════
@@ -468,7 +468,7 @@ elif page == "📊 Model Insights":
         xaxis_title="Importance Score",
         margin=dict(l=10, r=10, t=10, b=10),
     )
-    st.plotly_chart(fig_imp, use_container_width=True)
+    st.plotly_chart(fig_imp, width="stretch")
 
     st.markdown("---")
     st.markdown('<div class="section-header">Risk Score Distribution</div>',
@@ -490,7 +490,7 @@ elif page == "📊 Model Insights":
         height=320,
         margin=dict(l=10, r=10, t=10, b=10),
     )
-    st.plotly_chart(fig_dist, use_container_width=True)
+    st.plotly_chart(fig_dist, width="stretch")
 
     st.markdown("---")
     st.markdown('<div class="section-header">Full Metrics Summary</div>',
@@ -499,7 +499,7 @@ elif page == "📊 Model Insights":
         "Metric": k.replace("_", " ").title(),
         "Value": f"{v:.4f}" if isinstance(v, float) else str(v),
     } for k, v in metrics.items() if k not in ("tp", "tn", "fp", "fn")])
-    st.dataframe(metrics_df, use_container_width=True, hide_index=True)
+    st.dataframe(metrics_df, width="stretch", hide_index=True)
 
     st.markdown("---")
     st.markdown(
