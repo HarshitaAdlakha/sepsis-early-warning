@@ -206,4 +206,4 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 ---
 
-*Built as a portfolio project for the Amazon ML Summer Program 2024.*
+*Built by Harshita Adlakha*
